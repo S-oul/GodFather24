@@ -26,6 +26,8 @@ public class PhysicsTest : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Debug.DrawLine(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position);   
+        Debug.DrawLine(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position, Color.red);
+        Debug.DrawLine(transform.position, transform.position + (Vector3)_rigidbody.velocity, Color.yellow);
+
     }
 }
