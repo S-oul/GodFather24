@@ -13,10 +13,13 @@ public class PhysicsTest : MonoBehaviour
 
     GameObject _selectedAnchor;
 
+    CameraShake _shake;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _followAliments.Add(this.gameObject);
+        _shake = GetComponentInChildren<CameraShake>();
     }
     private void Update()
     {
@@ -71,6 +74,8 @@ public class PhysicsTest : MonoBehaviour
         {
             Vector2 dirToPlayer = transform.position - collision.transform.position;
             _rigidbody.velocity = dirToPlayer * _bombPowerScale;
+            StartCoroutine(_shake.shakeCam());
+
         }
 
         if (collision.transform.CompareTag("wall"))
