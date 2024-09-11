@@ -24,7 +24,7 @@ public class PhysicsTest : MonoBehaviour
                 Vector2 mouseToPlayer = mouseWorldPos - transform.position;
                 float distance = Vector3.Distance(mouseWorldPos, transform.position);
 
-                _rigidbody.velocity = mouseToPlayer.normalized * _playerSpeed * Mathf.Max(0,distance * (1 / (distance + 1)));
+                _rigidbody.velocity += mouseToPlayer.normalized * _playerSpeed * Mathf.Max(0,distance * (1 / (distance + 1)));
                 print(mouseWorldPos + " // " + mouseToPlayer);
             }
         }

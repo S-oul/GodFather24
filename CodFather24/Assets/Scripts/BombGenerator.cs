@@ -17,7 +17,7 @@ public class BombGenerator : MonoBehaviour
         for (int i = 0; i < BombNumber; i++) {
             GameObject go = Instantiate(Bomb,transform.position,transform.rotation,transform);
             go.name = "Bomb " + i;
-            go.transform.position = new Vector3(Random.Range(-Size.x, Size.x), Random.Range(-Size.y, Size.y));
+            go.transform.position = new Vector3(Random.Range(-Size.x, Size.x), Random.Range(-Size.y, Size.y))+ transform.position;
 
             foreach (Transform t in bombs) 
             {
@@ -43,6 +43,6 @@ public class BombGenerator : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireCube(Vector3.zero,Size*2);
+        Gizmos.DrawWireCube(transform.position,Size*2);
     }
 }
