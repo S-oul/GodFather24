@@ -6,6 +6,7 @@ public class PhysicsTest : MonoBehaviour
 {
     [SerializeField] float _playerSpeed = .15f;
     [SerializeField] float _bombPowerScale = 5;
+    [SerializeField] float _forceFieldPower = 5;
 
     Rigidbody2D _rigidbody;
 
@@ -94,6 +95,13 @@ public class PhysicsTest : MonoBehaviour
             collision.transform.GetComponent<follower>().target = _followAliments[_followAliments.Count -1].transform;
             collision.transform.GetComponent<BoxCollider2D>().enabled = false;
             _followAliments.Add(collision.gameObject);
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("ForceFeild"))
+        {
+            _rigidbody.velocity += (Vector2.zero - new Vector2(transform.position.x, transform.position.y)) * _forceFieldPower;
         }
     }
 
