@@ -20,7 +20,7 @@ public class PhysicsTest : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPos.z = 0;
@@ -28,10 +28,17 @@ public class PhysicsTest : MonoBehaviour
             if (hit && hit.transform.CompareTag("Anchor")) {
 
                 _selectedAnchor = hit.collider.gameObject;
-                _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.red;
+                if (Input.GetMouseButtonDown(0))
+                {
+                    _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.red;
+                }
+                else if (Input.GetMouseButtonDown(1))
+                {
+                    _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.blue;
+                }
             }
         }
-        if (Input.GetMouseButtonUp(0)) 
+        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1)) 
         {
             if (_selectedAnchor != null)
             {
@@ -42,10 +49,19 @@ public class PhysicsTest : MonoBehaviour
 
         if (_selectedAnchor != null)
         {
+            print("hey");
             Vector2 AnchorToPlayer   = _selectedAnchor.transform.position - transform.position;
             float distance = Vector3.Distance(_selectedAnchor.transform.position, transform.position);
-
-            _rigidbody.velocity += AnchorToPlayer.normalized * _playerSpeed * Mathf.Max(0, distance * (1 / (distance + 1)));
+            if (Input.GetMouseButton(0))
+            {
+                print("Attire");
+                _rigidbody.velocity += AnchorToPlayer.normalized * _playerSpeed * Mathf.Max(0, distance * (1 / (distance + 1)));
+            }
+            else if(Input.GetMouseButton(1))
+            {
+                print("Ettire");
+                _rigidbody.velocity -= AnchorToPlayer.normalized * _playerSpeed * Mathf.Max(0, distance * (1 / (distance + 1)));
+            }
         }
     }
 
