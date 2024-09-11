@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -16,8 +17,17 @@ public class PhysicsTest : MonoBehaviour
 
     CameraShake _shake;
 
+    [SerializeField] int maxElements = 2;
+
+    [SerializeField] TextMeshProUGUI nbrElements;
+    [SerializeField] TextMeshProUGUI maxNbrElements;
+
     void Start()
     {
+        maxNbrElements.text = maxElements.ToString();
+        nbrElements.text = _followAliments.Count.ToString();
+
+
         _rigidbody = GetComponent<Rigidbody2D>();
         _followAliments.Add(this.gameObject);
         _shake = GetComponentInChildren<CameraShake>();
@@ -92,10 +102,15 @@ public class PhysicsTest : MonoBehaviour
     {
         if (collision.transform.CompareTag("aliments"))
         {
-            collision.transform.GetComponent<follower>().target = _followAliments[_followAliments.Count -1].transform;
-            collision.transform.GetComponent<BoxCollider2D>().enabled = false;
-            _followAliments.Add(collision.gameObject);
+            if (maxElements >= _followAliments.Count)
+            {
+                nbrElements.text = _followAliments.Count.ToString();
+                collision.transform.GetComponent<follower>().target = _followAliments[_followAliments.Count - 1].transform;
+                collision.transform.GetComponent<BoxCollider2D>().enabled = false;
+                _followAliments.Add(collision.gameObject);
+            }
         }
+        
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
