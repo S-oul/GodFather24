@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PhysicsTest : MonoBehaviour
@@ -7,9 +9,12 @@ public class PhysicsTest : MonoBehaviour
 
     Rigidbody2D _rigidbody;
 
+    List<GameObject> followAliments = new List<GameObject>();
+
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();   
+        _rigidbody = GetComponent<Rigidbody2D>();
+        followAliments.Add(this.gameObject);
     }
     private void Update()
     {
@@ -36,6 +41,24 @@ public class PhysicsTest : MonoBehaviour
         {
             Vector2 dirToPlayer = transform.position - collision.transform.position;
             _rigidbody.velocity = dirToPlayer * _bombPowerScale;
+        }
+
+        if (collision.transform.CompareTag("wall"))
+        {
+            _rigidbody.velocity = collision.contacts[0].normal * _bombPowerScale;
+        }
+
+        
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("aliments"))
+        {
+            collision.transform.GetComponent<follower>().target = followAliments[followAliments.Count -1].transform;
+            collision.transform.GetComponent<BoxCollider2D>().enabled = false;
+            followAliments.Add(collision.gameObject);
         }
     }
 
