@@ -7,6 +7,7 @@ public class PhysicsTest : MonoBehaviour
 {
     [SerializeField] float _playerSpeed = .15f;
     [SerializeField] float _bombPowerScale = 5;
+    [SerializeField] float _forceFieldPower = 5;
 
     Rigidbody2D _rigidbody;
 
@@ -110,6 +111,13 @@ public class PhysicsTest : MonoBehaviour
             }
         }
         
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("ForceFeild"))
+        {
+            _rigidbody.velocity += (Vector2.zero - new Vector2(transform.position.x, transform.position.y)) * _forceFieldPower;
+        }
     }
 
     #region Debug
