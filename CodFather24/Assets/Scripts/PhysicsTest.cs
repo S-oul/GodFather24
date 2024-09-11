@@ -33,16 +33,19 @@ public class PhysicsTest : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0)) 
         {
-            _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.white;
-            _selectedAnchor = null;
+            if (_selectedAnchor != null)
+            {
+                _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.white;
+                _selectedAnchor = null;
+            }
         }
 
         if (_selectedAnchor != null)
         {
-            Vector2 mouseToPlayer = _selectedAnchor.transform.position - transform.position;
+            Vector2 AnchorToPlayer   = _selectedAnchor.transform.position - transform.position;
             float distance = Vector3.Distance(_selectedAnchor.transform.position, transform.position);
 
-            _rigidbody.velocity += mouseToPlayer.normalized * _playerSpeed * Mathf.Max(0, distance * (1 / (distance + 1)));
+            _rigidbody.velocity += AnchorToPlayer.normalized * _playerSpeed * Mathf.Max(0, distance * (1 / (distance + 1)));
         }
     }
 
