@@ -37,6 +37,11 @@ public class PhysicsTest : MonoBehaviour
             Vector2 dirToPlayer = transform.position - collision.transform.position;
             _rigidbody.velocity = dirToPlayer * _bombPowerScale;
         }
+
+        if (collision.transform.CompareTag("wall"))
+        {
+            _rigidbody.velocity = collision.contacts[0].normal * _bombPowerScale;
+        }
     }
 
     #region Debug
