@@ -9,29 +9,40 @@ public class PhysicsTest : MonoBehaviour
 
     Rigidbody2D _rigidbody;
 
-    List<GameObject> followAliments = new List<GameObject>();
+    List<GameObject> _followAliments = new List<GameObject>();
+
+    GameObject _selectedAnchor;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        followAliments.Add(this.gameObject);
+        _followAliments.Add(this.gameObject);
     }
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPos.z = 0;
-
             RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
             if (hit && hit.transform.CompareTag("Anchor")) {
 
-                Vector2 mouseToPlayer = mouseWorldPos - transform.position;
-                float distance = Vector3.Distance(mouseWorldPos, transform.position);
-
-                _rigidbody.velocity += mouseToPlayer.normalized * _playerSpeed * Mathf.Max(0,distance * (1 / (distance + 1)));
-                print(mouseWorldPos + " // " + mouseToPlayer);
+                _selectedAnchor = hit.collider.gameObject;
+                _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.red;
             }
+        }
+        if (Input.GetMouseButtonUp(0)) 
+        {
+            _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.white;
+            _selectedAnchor = null;
+        }
+
+        if (_selectedAnchor != null)
+        {
+            Vector2 mouseToPlayer = _selectedAnchor.transform.position - transform.position;
+            float distance = Vector3.Distance(_selectedAnchor.transform.position, transform.position);
+
+            _rigidbody.velocity += mouseToPlayer.normalized * _playerSpeed * Mathf.Max(0, distance * (1 / (distance + 1)));
         }
     }
 
@@ -56,9 +67,9 @@ public class PhysicsTest : MonoBehaviour
     {
         if (collision.transform.CompareTag("aliments"))
         {
-            collision.transform.GetComponent<follower>().target = followAliments[followAliments.Count -1].transform;
+            collision.transform.GetComponent<follower>().target = _followAliments[_followAliments.Count -1].transform;
             collision.transform.GetComponent<BoxCollider2D>().enabled = false;
-            followAliments.Add(collision.gameObject);
+            _followAliments.Add(collision.gameObject);
         }
     }
 
