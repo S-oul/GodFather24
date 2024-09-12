@@ -18,6 +18,9 @@ public class UICoolDown : MonoBehaviour
 
     [SerializeField] GameObject ecranFin;
 
+    bool reste60 = false;
+    bool reste10 = false;
+
     private void Start()
     {
         this.gameObject.SetActive(true);
@@ -34,12 +37,28 @@ public class UICoolDown : MonoBehaviour
         var ts = TimeSpan.FromSeconds(timer);
         tmp.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
 
+        if (timer < 60 && !reste60)
+        {
+            //play sound "il reste 1 minutes"
+            //SoundManager.instance.jouerAudio(SoundManager.instance.reste60sound);
+
+            reste60 = true;
+        }
+
         if (timer < 10)
         {
+            if (!reste10)
+            {
+                //play sound "moins de 10 secondes"
+                //SoundManager.instance.jouerAudio(SoundManager.instance.reste10sound);
+
+                reste10 = true;
+            }
             float pourcentageTransparence = (10 - timer) / 10;
             transparence.a = fade.Evaluate(pourcentageTransparence);
             neige.color = transparence;
         }
+
         if (timer <= 0)
         {
             ecranFin.SetActive(true);

@@ -77,11 +77,17 @@ public class PhysicsTest : MonoBehaviour
             float distance = Vector3.Distance(_selectedAnchor.transform.position, transform.position);
             if (Input.GetMouseButton(0))
             {
+                //play sound attire
+                //SoundManager.instance.jouerAudio(SoundManager.instance.aimantAttire);
+
                 print("Attire");
                 _rigidbody.velocity += AnchorToPlayer.normalized * _playerSpeed * Mathf.Max(0, -Mathf.Pow(distance / (MaxDist / 2) - 1, 4) + 1);
             }
             else if(Input.GetMouseButton(1))
             {
+                //play sound ettire
+                //SoundManager.instance.jouerAudio(SoundManager.instance.aimantEttire);
+
                 print("Ettire");
                 _rigidbody.velocity -= AnchorToPlayer.normalized * _playerSpeed * Mathf.Max(0, -Mathf.Pow(distance / (MaxDist / 2) - 1, 4) + 1);
             }
@@ -98,6 +104,10 @@ public class PhysicsTest : MonoBehaviour
     {
         if (collision.transform.CompareTag("bomb"))
         {
+            //destroy bomb 
+            //play sound explosion
+            //SoundManager.instance.jouerAudio(SoundManager.instance.bombeExplosion);
+            
             Vector2 dirToPlayer = transform.position - collision.transform.position;
             _rigidbody.velocity = dirToPlayer * _bombPowerScale;
             StartCoroutine(_shake.shakeCam());
@@ -119,6 +129,9 @@ public class PhysicsTest : MonoBehaviour
         {
             if (nbrAliments <= maxElements-1)
             {
+                //play sound collecte
+                //SoundManager.instance.jouerAudio(SoundManager.instance.collecteItem);
+
                 nbrAliments++;
                 nbrElements.text = nbrAliments.ToString();
                 collision.transform.GetComponent<follower>().target = _followAliments[_followAliments.Count - 1].transform;

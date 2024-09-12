@@ -11,10 +11,16 @@ public class CameraShake : MonoBehaviour
 
     [SerializeField] CinemachineVirtualCamera virtualCamera;
 
+    [SerializeField] bool tourne = false;
+
     public IEnumerator shakeCam()
     {
         float temps = duree;
-        virtualCamera.m_Lens.Dutch = 1f;
+
+        if (tourne)
+        {
+            virtualCamera.m_Lens.Dutch = 1f;
+        }
         while (temps > 0)
         {
         transform.localPosition = new Vector2(Random.Range(-1,1)*power, Random.Range(-1, 1) * power);
@@ -24,7 +30,10 @@ public class CameraShake : MonoBehaviour
         }
         transform.localPosition = Vector3.zero;
 
-        virtualCamera.m_Lens.Dutch = 0f;
+        if (tourne)
+        {
+            virtualCamera.m_Lens.Dutch = 0f;
+        }
 
         yield return null;
     }
