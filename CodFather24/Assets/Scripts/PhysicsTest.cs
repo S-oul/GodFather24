@@ -29,9 +29,12 @@ public class PhysicsTest : MonoBehaviour
         _followAliments.Add(this.gameObject);
         _shake = GetComponentInChildren<CameraShake>();
 
-
-        maxNbrElements.text = maxElements.ToString();
-        nbrElements.text = _followAliments.Count.ToString();
+        if (nbrElements != null)
+        {
+            maxNbrElements.text = maxElements.ToString();
+            nbrElements.text = _followAliments.Count.ToString();
+        }
+        
     }
     private void Update()
     {
