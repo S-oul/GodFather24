@@ -23,6 +23,7 @@ public class PhysicsTest : MonoBehaviour
     CameraShake _shake;
 
     [SerializeField] int maxElements = 2;
+    int nbrAliments = 0;
 
     [SerializeField] TextMeshProUGUI nbrElements;
     [SerializeField] TextMeshProUGUI maxNbrElements;
@@ -36,7 +37,7 @@ public class PhysicsTest : MonoBehaviour
         if (nbrElements != null)
         {
             maxNbrElements.text = maxElements.ToString();
-            nbrElements.text = _followAliments.Count.ToString();
+            nbrElements.text = nbrAliments.ToString();
         }
         
     }
@@ -116,9 +117,10 @@ public class PhysicsTest : MonoBehaviour
     {
         if (collision.transform.CompareTag("aliments"))
         {
-            if (maxElements >= _followAliments.Count)
+            if (nbrAliments <= maxElements-1)
             {
-                nbrElements.text = _followAliments.Count.ToString();
+                nbrAliments++;
+                nbrElements.text = nbrAliments.ToString();
                 collision.transform.GetComponent<follower>().target = _followAliments[_followAliments.Count - 1].transform;
                 collision.transform.GetComponent<BoxCollider2D>().enabled = false;
                 _followAliments.Add(collision.gameObject);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class fleche : MonoBehaviour
 {
-    [SerializeField] GameObject fleche_aliment;
+    public GameObject fleche_aliment;
     [SerializeField] float MaxDistanceToDisplay = 50;
 
     RectTransform transformFleche;
