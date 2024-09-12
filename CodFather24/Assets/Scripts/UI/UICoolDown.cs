@@ -18,6 +18,10 @@ public class UICoolDown : MonoBehaviour
 
     [SerializeField] GameObject ecranFin;
 
+    [SerializeField] GameObject collectible;
+    [SerializeField] GameObject fleches;
+    [SerializeField] GameObject miniMap;
+
     bool reste60 = false;
     bool reste10 = false;
 
@@ -28,6 +32,10 @@ public class UICoolDown : MonoBehaviour
         transparence = neige.color;
         transparence.a = 0f;
         neige.color = transparence;
+
+        collectible.SetActive(true);
+        fleches.SetActive(true);
+        miniMap.SetActive(true);
     }
 
 
@@ -63,6 +71,10 @@ public class UICoolDown : MonoBehaviour
         {
             ecranFin.SetActive(true);
             this.gameObject.SetActive(false);
+
+            collectible.SetActive(false);
+            fleches.SetActive(false);
+            miniMap.SetActive(false);
         }
     }
 }

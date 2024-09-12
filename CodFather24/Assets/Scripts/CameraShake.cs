@@ -17,12 +17,13 @@ public class CameraShake : MonoBehaviour
     {
         float temps = duree;
 
-        if (tourne)
-        {
-            virtualCamera.m_Lens.Dutch = 1f;
-        }
         while (temps > 0)
         {
+            if (tourne)
+            {
+                Camera.main.transform.eulerAngles += new Vector3(0, 0, 1);
+                //virtualCamera.m_Lens.Dutch = 1f;
+            }
         transform.localPosition = new Vector2(Random.Range(-1,1)*power, Random.Range(-1, 1) * power);
         temps -= Time.deltaTime;
 
@@ -32,7 +33,8 @@ public class CameraShake : MonoBehaviour
 
         if (tourne)
         {
-            virtualCamera.m_Lens.Dutch = 0f;
+            Camera.main.transform.eulerAngles += new Vector3(0, 0, 0);
+            //virtualCamera.m_Lens.Dutch = 0f;
         }
 
         yield return null;
