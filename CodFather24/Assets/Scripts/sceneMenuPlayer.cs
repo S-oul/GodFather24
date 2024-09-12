@@ -71,6 +71,9 @@ public class sceneMenuPlayer : MonoBehaviour
     {
         StopAllCoroutines();
 
+        debutTimer = false;
+        timer = 3f;
+
         transparence.a = 0f;
         debut.color = transparence;
     }
