@@ -25,13 +25,13 @@ public class PhysicsTest : MonoBehaviour
 
     void Start()
     {
-        maxNbrElements.text = maxElements.ToString();
-        nbrElements.text = _followAliments.Count.ToString();
-
-
         _rigidbody = GetComponent<Rigidbody2D>();
         _followAliments.Add(this.gameObject);
         _shake = GetComponentInChildren<CameraShake>();
+
+
+        maxNbrElements.text = maxElements.ToString();
+        nbrElements.text = _followAliments.Count.ToString();
     }
     private void Update()
     {
@@ -64,8 +64,9 @@ public class PhysicsTest : MonoBehaviour
 
         if (_selectedAnchor != null)
         {
-            print("hey");
             Vector2 AnchorToPlayer   = _selectedAnchor.transform.position - transform.position;
+            var angle = Mathf.Atan2(AnchorToPlayer.y, AnchorToPlayer.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             float distance = Vector3.Distance(_selectedAnchor.transform.position, transform.position);
             if (Input.GetMouseButton(0))
             {
