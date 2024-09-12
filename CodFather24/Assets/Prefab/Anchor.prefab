@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4487587234010375804}
   - component: {fileID: 1314833761944116070}
+  - component: {fileID: 6404131118829290612}
   - component: {fileID: 1259218722171291476}
   m_Layer: 0
   m_Name: Anchor
@@ -85,6 +86,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6404131118829290612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660922457536417713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0881a92cfa64c64d9a21065f0f32c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequency: 0.1
+  power: 0.1
 --- !u!58 &1259218722171291476
 CircleCollider2D:
   m_ObjectHideFlags: 0

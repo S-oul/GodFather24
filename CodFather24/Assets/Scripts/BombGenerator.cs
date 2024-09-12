@@ -19,13 +19,16 @@ public class BombGenerator : MonoBehaviour
             go.name = "Bomb " + i;
             go.transform.position = new Vector3(Random.Range(-Size.x, Size.x), Random.Range(-Size.y, Size.y))+ transform.position;
 
+            bool destroy = false;
             foreach (Transform t in bombs) 
             {
                 if(Vector3.Distance(t.position,go.transform.position) < 1.5f)
                 {
-                    go.transform.position += (go.transform.position - t.position).normalized *SpaceBetween;
+                    destroy = true;
+                    break;
                 }
             }
+            if (destroy) { Destroy(go); continue; }
 
 
             bombs.Add(go.transform);

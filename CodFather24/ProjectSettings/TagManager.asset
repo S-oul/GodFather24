@@ -9,6 +9,9 @@ TagManager:
   - wall
   - aliments
   - ForceFeild
+  - changeScene
+  - menu
+  - quit
   layers:
   - Default
   - TransparentFX
