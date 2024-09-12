@@ -145,13 +145,13 @@ public class PhysicsTest : MonoBehaviour
             SoundManager.instance.jouerAudio(SoundManager.instance.bombeExplosion);
             
             
+            
+            StartCoroutine(waitforExplosion(collision.transform.position));
+            collision.transform.GetComponent<Animator>().SetTrigger("Explode");
 
-            Vector2 dirToPlayer = transform.position - collision.transform.position;
-            _rigidbody.velocity = dirToPlayer * _bombPowerScale;
-            StartCoroutine(_shake.shakeCam());
             StartCoroutine(stun());
 
-            collision.gameObject.SetActive(false);
+            //collision.gameObject.SetActive(false);
 
             if(_selectedAnchor != null)
             {
@@ -213,6 +213,14 @@ public class PhysicsTest : MonoBehaviour
         isStun = true;
         yield return new WaitForSeconds(stunTime);
         isStun = false;
+    }
+    IEnumerator waitforExplosion(Vector3 pos)
+    {
+        yield return new WaitForSeconds(.15f);
+        Vector2 dirToPlayer = transform.position - pos;
+        _rigidbody.velocity = dirToPlayer * _bombPowerScale;
+
+        StartCoroutine(_shake.shakeCam());
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
