@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Rendering;
@@ -108,10 +109,27 @@ public class PhysicsTest : MonoBehaviour
                 collision.transform.GetComponent<follower>().target = _followAliments[_followAliments.Count - 1].transform;
                 collision.transform.GetComponent<BoxCollider2D>().enabled = false;
                 _followAliments.Add(collision.gameObject);
+
+                StartCoroutine(flash());
+
             }
         }
         
     }
+
+
+    IEnumerator flash()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            nbrElements.color = Color.red;
+            yield return new WaitForSeconds(0.5f);
+            nbrElements.color = Color.white;
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("ForceFeild"))
