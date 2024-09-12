@@ -32,7 +32,9 @@ public class SoundManager : MonoBehaviour
     public void jouerAudio(AudioClip clip)
     {
         //AudioSource.volume = 99;
-        AudioSource.PlayClipAtPoint(clip, transform.position);
+        _audioSource.clip = clip;
+        _audioSource.Play();
+
     }
 
     public void StopSound()

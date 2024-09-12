@@ -68,7 +68,7 @@ public class PhysicsTest : MonoBehaviour
             {
                 _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.white;
                 _selectedAnchor = null;
-                SoundManager.instance.StopSound();
+                SoundManager.instance.StopSound(); ;
             }
         }
 
