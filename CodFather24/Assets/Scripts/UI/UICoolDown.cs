@@ -47,10 +47,10 @@ public class UICoolDown : MonoBehaviour
         var ts = TimeSpan.FromSeconds(timer);
         tmp.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
 
-        if (timer < 60 && !reste60)
+        if (timer < 30 && !reste60)
         {
             //play sound "il reste 1 minutes"
-            //SoundManager.instance.jouerAudio(SoundManager.instance.reste60sound);
+            StartCoroutine(playSound());
 
             reste60 = true;
         }
@@ -59,8 +59,6 @@ public class UICoolDown : MonoBehaviour
         {
             if (!reste10)
             {
-                //play sound "moins de 10 secondes"
-                //SoundManager.instance.jouerAudio(SoundManager.instance.reste10sound);
 
                 reste10 = true;
             }
@@ -78,6 +76,15 @@ public class UICoolDown : MonoBehaviour
             fleches.SetActive(false);
             miniMap.SetActive(false);
             colliderPlayer.SetActive(false);
+        }
+    }
+
+    IEnumerator playSound()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            SoundManager.instance.jouerAudio(SoundManager.instance.reste30sound);
+            yield return new WaitForSeconds(2);
         }
     }
 }

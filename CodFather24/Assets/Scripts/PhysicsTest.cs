@@ -68,6 +68,7 @@ public class PhysicsTest : MonoBehaviour
             {
                 _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.white;
                 _selectedAnchor = null;
+                SoundManager.instance.StopSound();
             }
         }
 
@@ -79,7 +80,7 @@ public class PhysicsTest : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 //play sound attire
-                //SoundManager.instance.jouerAudio(SoundManager.instance.aimantAttire);
+                SoundManager.instance.jouerAudio(SoundManager.instance.aimantAttire);
 
                 print("Attire");
                 _rigidbody.velocity += AnchorToPlayer.normalized * _playerSpeed * Mathf.Max(0, -Mathf.Pow(distance / (MaxDist / 2) - 1, 4) + 1);
@@ -87,7 +88,7 @@ public class PhysicsTest : MonoBehaviour
             else if(Input.GetMouseButton(1))
             {
                 //play sound ettire
-                //SoundManager.instance.jouerAudio(SoundManager.instance.aimantEttire);
+                SoundManager.instance.jouerAudio(SoundManager.instance.aimantEttire);
 
                 print("Ettire");
                 _rigidbody.velocity -= AnchorToPlayer.normalized * _playerSpeed * Mathf.Max(0, -Mathf.Pow(distance / (MaxDist / 2) - 1, 4) + 1);
@@ -131,7 +132,7 @@ public class PhysicsTest : MonoBehaviour
             if (nbrAliments <= maxElements-1)
             {
                 //play sound collecte
-                //SoundManager.instance.jouerAudio(SoundManager.instance.collecteItem);
+                SoundManager.instance.jouerAudio(SoundManager.instance.collecteItem);
 
                 nbrAliments++;
                 nbrElements.text = nbrAliments.ToString();
