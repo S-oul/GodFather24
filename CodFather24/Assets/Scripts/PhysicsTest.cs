@@ -30,7 +30,10 @@ public class PhysicsTest : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI nbrElements;
     [SerializeField] TextMeshProUGUI maxNbrElements;
-    [SerializeField] TextMeshProUGUI slash; 
+    [SerializeField] TextMeshProUGUI slash;
+
+    LineRenderer _lr;
+
 
     void Start()
     {
@@ -43,7 +46,10 @@ public class PhysicsTest : MonoBehaviour
             maxNbrElements.text = maxElements.ToString();
             nbrElements.text = nbrAliments.ToString();
         }
-        
+
+        _lr = GetComponent<LineRenderer>();
+
+
     }
     private void Update()
     {
@@ -59,11 +65,11 @@ public class PhysicsTest : MonoBehaviour
                     _selectedAnchor = hit.collider.gameObject;
                     if (Input.GetMouseButtonDown(0))
                     {
-                        _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.red;
+                        _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.blue;
                     }
                     else if (Input.GetMouseButtonDown(1))
                     {
-                        _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.blue;
+                        _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.red;
                     }
                 }
             }
@@ -71,6 +77,7 @@ public class PhysicsTest : MonoBehaviour
             {
                 if (_selectedAnchor != null)
                 {
+                    _lr.enabled = false;
                     _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.white;
                     _selectedAnchor = null;
                 }
@@ -85,16 +92,33 @@ public class PhysicsTest : MonoBehaviour
                 {
                     //play sound attire
                     //SoundManager.instance.jouerAudio(SoundManager.instance.aimantAttire);
+                    _lr.enabled = true;
+                    _lr.SetPosition(0, _selectedAnchor.transform.position);
+                    _lr.SetPosition(1, transform.position);
 
-                    print("Attire");
+                    Gradient gradient = _lr.colorGradient;
+                    GradientColorKey[] colorKeys = gradient.colorKeys;
+                    colorKeys[0].color = Color.blue;
+                    gradient.colorKeys = colorKeys;
+                    _lr.colorGradient = gradient;
+
                     _rigidbody.velocity += AnchorToPlayer.normalized * _playerSpeed * Mathf.Max(0, -Mathf.Pow(distance / (MaxDist / 2) - 1, 4) + 1);
                 }
                 else if(Input.GetMouseButton(1))
                 {
                     //play sound ettire
                     //SoundManager.instance.jouerAudio(SoundManager.instance.aimantEttire);
+                    _lr.enabled = true;
 
-                    print("Ettire");
+                    Gradient gradient = _lr.colorGradient;
+                    GradientColorKey[] colorKeys = gradient.colorKeys;
+                    colorKeys[0].color = Color.red;
+                    gradient.colorKeys  = colorKeys;
+                    _lr.colorGradient = gradient;
+
+                    _lr.SetPosition(0, _selectedAnchor.transform.position);
+                    _lr.SetPosition(1, transform.position);
+
                     _rigidbody.velocity -= AnchorToPlayer.normalized * _playerSpeed * Mathf.Max(0, -Mathf.Pow(distance / (MaxDist / 2) - 1, 4) + 1);
                 }
             }
@@ -111,6 +135,8 @@ public class PhysicsTest : MonoBehaviour
     {
         if (collision.transform.CompareTag("bomb"))
         {
+            _lr.enabled = false;
+
             //destroy bomb 
             //play sound explosion
             SoundManager.instance.jouerAudio(SoundManager.instance.bombeExplosion);
