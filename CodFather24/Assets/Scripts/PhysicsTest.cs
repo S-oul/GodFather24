@@ -27,6 +27,7 @@ public class PhysicsTest : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI nbrElements;
     [SerializeField] TextMeshProUGUI maxNbrElements;
+    [SerializeField] TextMeshProUGUI slash; 
 
     void Start()
     {
@@ -151,8 +152,12 @@ public class PhysicsTest : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             nbrElements.color = Color.red;
+            maxNbrElements.color = Color.red;
+            slash.color = Color.red;
             yield return new WaitForSeconds(0.5f);
             nbrElements.color = Color.white;
+            maxNbrElements.color = Color.white;
+            slash.color = Color.white;
             yield return new WaitForSeconds(0.5f);
         }
     }
