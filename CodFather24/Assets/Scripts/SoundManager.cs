@@ -11,8 +11,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip aimantEttire;
     public AudioClip bombeExplosion;
     public AudioClip collecteItem;
-    public AudioClip reste60sound;
-    public AudioClip reste10sound;
+    public AudioClip reste30sound;
     //public AudioClip ambiance;
 
     private AudioSource _audioSource;
@@ -32,7 +31,14 @@ public class SoundManager : MonoBehaviour
 
     public void jouerAudio(AudioClip clip)
     {
-        _audioSource.volume = 99;
-        AudioSource.PlayClipAtPoint(clip, transform.position);
+        //AudioSource.volume = 99;
+        _audioSource.clip = clip;
+        _audioSource.Play();
+
+    }
+
+    public void StopSound()
+    {
+        _audioSource.Stop();
     }
 }

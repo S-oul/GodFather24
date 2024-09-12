@@ -174,7 +174,7 @@ public class PhysicsTest : MonoBehaviour
             if (nbrAliments <= maxElements-1)
             {
                 //play sound collecte
-                //SoundManager.instance.jouerAudio(SoundManager.instance.collecteItem);
+                SoundManager.instance.jouerAudio(SoundManager.instance.collecteItem);
 
                 nbrAliments++;
                 nbrElements.text = nbrAliments.ToString();
