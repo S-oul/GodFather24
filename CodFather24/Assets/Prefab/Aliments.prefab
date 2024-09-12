@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5337213152548625709}
   - component: {fileID: 9106400923190296182}
   - component: {fileID: 1685580452099381449}
+  - component: {fileID: 109973487458277115}
   m_Layer: 0
   m_Name: Aliments
   m_TagString: aliments
@@ -146,3 +147,18 @@ MonoBehaviour:
   target: {fileID: 0}
   followDelay: 0.5
   followSpeed: 200
+--- !u!114 &109973487458277115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4340303495944928310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f9ed179b0c4494d8822487b7fe55df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fleche_aliment: {fileID: 0}
+  MaxDistanceToDisplay: 50
+  player: {fileID: 0}

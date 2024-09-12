@@ -7,8 +7,6 @@ public class AlimentsTest : MonoBehaviour
     [SerializeField] List<GameObject> points = new List<GameObject>();
     [SerializeField] List<GameObject> aliments = new List<GameObject>();
 
-    [SerializeField] List <GameObject> fleches = new List<GameObject>();
-
     private void Start()
     {
         foreach (GameObject point in points)
@@ -17,7 +15,6 @@ public class AlimentsTest : MonoBehaviour
             aliments[randomIndex].transform.position = point.transform.position;
             aliments.RemoveAt(randomIndex);
             point.SetActive(false);
-
             
         }
     }
