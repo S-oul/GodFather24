@@ -1197,6 +1197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fleche_aliment: {fileID: 718351092}
+  player: {fileID: 0}
 --- !u!1 &356007168
 GameObject:
   m_ObjectHideFlags: 0
@@ -3888,7 +3889,7 @@ GameObject:
   - component: {fileID: 1368592733}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4738,7 +4739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmp: {fileID: 1790042013}
-  timer: 20
+  timer: 180
   neige: {fileID: 869082242}
   fade:
     serializedVersion: 2
