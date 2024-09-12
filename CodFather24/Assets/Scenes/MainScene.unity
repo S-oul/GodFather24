@@ -1860,12 +1860,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1923529545}
   - {fileID: 1260161833}
-  - {fileID: 489299383}
   - {fileID: 1202180070}
   - {fileID: 277898603}
   - {fileID: 1697889857}
-  - {fileID: 1923529545}
   - {fileID: 1159276909}
   - {fileID: 639437878}
   m_Father: {fileID: 0}
@@ -2495,7 +2494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336310304}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3887,17 +3886,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489299382}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 255965915}
+  m_Father: {fileID: 1260161833}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 210, y: 0}
-  m_SizeDelta: {x: 420, y: 0}
+  m_AnchoredPosition: {x: -1436.5527, y: -27.307007}
+  m_SizeDelta: {x: 713.106, y: 653.939}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &489299384
 MonoBehaviour:
@@ -9776,13 +9775,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 489299383}
   m_Father: {fileID: 255965915}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -210, y: 0}
-  m_SizeDelta: {x: 420, y: 0}
+  m_AnchoredPosition: {x: -81.327, y: 50.975}
+  m_SizeDelta: {x: 677.345, y: 667.772}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1260161834
 MonoBehaviour:
@@ -12446,7 +12446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmp: {fileID: 1697889855}
-  timer: 180
+  timer: 15
   neige: {fileID: 1923529543}
   fade:
     serializedVersion: 2
@@ -12473,6 +12473,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   ecranFin: {fileID: 1159276906}
+  collectible: {fileID: 1202180069}
+  fleches: {fileID: 277898602}
+  miniMap: {fileID: 639437877}
 --- !u!114 &1697889855
 MonoBehaviour:
   m_ObjectHideFlags: 0
