@@ -21,6 +21,7 @@ public class UICoolDown : MonoBehaviour
     [SerializeField] GameObject collectible;
     [SerializeField] GameObject fleches;
     [SerializeField] GameObject miniMap;
+    [SerializeField] GameObject colliderPlayer;
 
     bool reste60 = false;
     bool reste10 = false;
@@ -36,6 +37,7 @@ public class UICoolDown : MonoBehaviour
         collectible.SetActive(true);
         fleches.SetActive(true);
         miniMap.SetActive(true);
+        colliderPlayer.SetActive(true);
     }
 
 
@@ -75,6 +77,7 @@ public class UICoolDown : MonoBehaviour
             collectible.SetActive(false);
             fleches.SetActive(false);
             miniMap.SetActive(false);
+            colliderPlayer.SetActive(false);
         }
     }
 }
