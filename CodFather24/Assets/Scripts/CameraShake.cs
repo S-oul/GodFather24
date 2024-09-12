@@ -19,11 +19,9 @@ public class CameraShake : MonoBehaviour
         {
         transform.localPosition = new Vector2(Random.Range(-1,1)*power, Random.Range(-1, 1) * power);
         temps -= Time.deltaTime;
-            print("ok2");
 
             yield return null;
         }
-        print("ok");
         transform.localPosition = Vector3.zero;
 
         virtualCamera.m_Lens.Dutch = 0f;
