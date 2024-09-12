@@ -33,12 +33,15 @@ public class SoundManager : MonoBehaviour
     {
         //AudioSource.volume = 99;
         _audioSource.clip = clip;
-        _audioSource.Play();
+        _audioSource.PlayOneShot(clip);
 
     }
 
     public void StopSound()
     {
-        _audioSource.Stop();
+        if(_audioSource.clip.name != "Alarm sound")
+        {
+            _audioSource.Stop();
+        }
     }
 }

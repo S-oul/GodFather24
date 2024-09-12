@@ -5322,11 +5322,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 255965915}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 25, y: 25}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 25, y: -25}
   m_SizeDelta: {x: 370, y: 370}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &639437879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12835,7 +12835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmp: {fileID: 1697889855}
-  timer: 60
+  timer: 36
   neige: {fileID: 1923529543}
   fade:
     serializedVersion: 2
@@ -13442,7 +13442,7 @@ PrefabInstance:
       objectReference: {fileID: 471138453}
     - target: {fileID: 1436921370380072807, guid: b7f30a25b40c69641bd41d9f7232b470, type: 3}
       propertyPath: maxElements
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1436921370380072807, guid: b7f30a25b40c69641bd41d9f7232b470, type: 3}
       propertyPath: nbrElements
@@ -13450,15 +13450,19 @@ PrefabInstance:
       objectReference: {fileID: 700748706}
     - target: {fileID: 1436921370380072807, guid: b7f30a25b40c69641bd41d9f7232b470, type: 3}
       propertyPath: _rotationSPeed
-      value: 9.7
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1436921370380072807, guid: b7f30a25b40c69641bd41d9f7232b470, type: 3}
       propertyPath: maxNbrElements
       value: 
       objectReference: {fileID: 495497345}
     - target: {fileID: 1436921370380072807, guid: b7f30a25b40c69641bd41d9f7232b470, type: 3}
+      propertyPath: _bombPowerScale
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436921370380072807, guid: b7f30a25b40c69641bd41d9f7232b470, type: 3}
       propertyPath: _forceFieldPower
-      value: 0.025
+      value: 0.015
       objectReference: {fileID: 0}
     - target: {fileID: 1507971927614135832, guid: b7f30a25b40c69641bd41d9f7232b470, type: 3}
       propertyPath: m_LocalScale.x
@@ -13519,6 +13523,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4057114289534655926, guid: b7f30a25b40c69641bd41d9f7232b470, type: 3}
+    - {fileID: 1274159311409030343, guid: b7f30a25b40c69641bd41d9f7232b470, type: 3}
+    - {fileID: 1833583296271644449, guid: b7f30a25b40c69641bd41d9f7232b470, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1507971927614135832, guid: b7f30a25b40c69641bd41d9f7232b470, type: 3}
       insertIndex: -1

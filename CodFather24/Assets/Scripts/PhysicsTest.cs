@@ -80,6 +80,8 @@ public class PhysicsTest : MonoBehaviour
                     _lr.enabled = false;
                     _selectedAnchor.GetComponent<SpriteRenderer>().color = Color.white;
                     _selectedAnchor = null;
+                    SoundManager.instance.StopSound();
+
                 }
             }
 
@@ -91,7 +93,7 @@ public class PhysicsTest : MonoBehaviour
                 if (Input.GetMouseButton(0))
                 {
                     //play sound attire
-                    //SoundManager.instance.jouerAudio(SoundManager.instance.aimantAttire);
+                    SoundManager.instance.jouerAudio(SoundManager.instance.aimantAttire);
                     _lr.enabled = true;
                     _lr.SetPosition(0, _selectedAnchor.transform.position);
                     _lr.SetPosition(1, transform.position);
@@ -107,7 +109,7 @@ public class PhysicsTest : MonoBehaviour
                 else if(Input.GetMouseButton(1))
                 {
                     //play sound ettire
-                    //SoundManager.instance.jouerAudio(SoundManager.instance.aimantEttire);
+                    SoundManager.instance.jouerAudio(SoundManager.instance.aimantEttire);
                     _lr.enabled = true;
 
                     Gradient gradient = _lr.colorGradient;
@@ -139,6 +141,7 @@ public class PhysicsTest : MonoBehaviour
 
             //destroy bomb 
             //play sound explosion
+            SoundManager.instance.StopSound();
             SoundManager.instance.jouerAudio(SoundManager.instance.bombeExplosion);
             
             
