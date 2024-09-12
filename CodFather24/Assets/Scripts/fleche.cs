@@ -10,9 +10,13 @@ public class fleche : MonoBehaviour
 
     float speedRotation = 0.1f;
 
+    [SerializeField] Transform player;
+
     private void Start()
     {
         transformFleche = fleche_aliment.GetComponent<RectTransform>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        Debug.Log(player);
     }
 
     private void Update()
@@ -21,7 +25,9 @@ public class fleche : MonoBehaviour
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
         screenPosition.z = 0;
 
-        
+        Vector2 AnchorToPlayer = this.transform.position - player.transform.position;
+        var angle = Mathf.Atan2(AnchorToPlayer.y, AnchorToPlayer.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         transformFleche.position = new Vector2( Mathf.Clamp(screenPosition.x, 0, Camera.main.pixelWidth), Mathf.Clamp(screenPosition.y, 0, Camera.main.pixelHeight));
 
