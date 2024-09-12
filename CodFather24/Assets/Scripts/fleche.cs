@@ -30,7 +30,10 @@ public class fleche : MonoBehaviour
         var angle = Mathf.Atan2(alimentToPlayer.y, alimentToPlayer.x) * Mathf.Rad2Deg;
         transformFleche.eulerAngles = new Vector3(0, 0, angle - 90 - Camera.main.transform.eulerAngles.z);
 
-        transformFleche.position = new Vector2(Mathf.Clamp(screenPosition.x, 420+20, Camera.main.pixelWidth-20-420), Mathf.Clamp(screenPosition.y, 20, Camera.main.pixelHeight-20));
+        transformFleche.position = new Vector2(
+            Mathf.Clamp(screenPosition.x, 420+20, Camera.main.pixelWidth-20-420),
+            Mathf.Clamp(screenPosition.y, 20, Camera.main.pixelHeight-20)
+        );
 
 
         transform.eulerAngles += new Vector3(0,0, speedRotation);
