@@ -106,7 +106,7 @@ public class PhysicsTest : MonoBehaviour
         {
             //destroy bomb 
             //play sound explosion
-            //SoundManager.instance.jouerAudio(SoundManager.instance.bombeExplosion);
+            SoundManager.instance.jouerAudio(SoundManager.instance.bombeExplosion);
             
             Vector2 dirToPlayer = transform.position - collision.transform.position;
             _rigidbody.velocity = dirToPlayer * _bombPowerScale;

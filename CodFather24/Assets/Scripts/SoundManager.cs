@@ -9,11 +9,11 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip aimantAttire;
     public AudioClip aimantEttire;
-    public AudioClip ambiance;
     public AudioClip bombeExplosion;
     public AudioClip collecteItem;
     public AudioClip reste60sound;
     public AudioClip reste10sound;
+    //public AudioClip ambiance;
 
     private AudioSource _audioSource;
 
@@ -27,11 +27,12 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public void jouerAudio(AudioClip clip)
     {
+        _audioSource.volume = 99;
         AudioSource.PlayClipAtPoint(clip, transform.position);
     }
 }
