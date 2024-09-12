@@ -14,13 +14,17 @@ public class UICoolDown : MonoBehaviour
     [SerializeField] Image neige;
     Color transparence;
 
+    [SerializeField] AnimationCurve fade;
+
     [SerializeField] GameObject ecranFin;
 
     private void Start()
     {
+        this.gameObject.SetActive(true);
         ecranFin.SetActive(false);
         transparence = neige.color;
         transparence.a = 0f;
+        neige.color = transparence;
     }
 
 
@@ -33,12 +37,13 @@ public class UICoolDown : MonoBehaviour
         if (timer < 10)
         {
             float pourcentageTransparence = (10 - timer) / 10;
-            transparence.a = pourcentageTransparence;
+            transparence.a = fade.Evaluate(pourcentageTransparence);
             neige.color = transparence;
         }
-        if (timer == 0)
+        if (timer <= 0)
         {
             ecranFin.SetActive(true);
+            this.gameObject.SetActive(false);
         }
     }
 }
