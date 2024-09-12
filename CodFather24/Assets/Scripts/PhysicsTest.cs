@@ -9,7 +9,7 @@ public class PhysicsTest : MonoBehaviour
     [SerializeField] float _playerSpeed = .15f;
     [SerializeField] float _bombPowerScale = 5;
     [SerializeField] float _forceFieldPower = 5;
-
+    [SerializeField] float MaxDist = 10;
     [SerializeField] float _rotationSPeed = 15;
      float previusAngle = 0;
 
@@ -72,21 +72,21 @@ public class PhysicsTest : MonoBehaviour
         if (_selectedAnchor != null)
         {
             Vector2 AnchorToPlayer = _selectedAnchor.transform.position - transform.position;
+
             float distance = Vector3.Distance(_selectedAnchor.transform.position, transform.position);
             if (Input.GetMouseButton(0))
             {
                 print("Attire");
-                _rigidbody.velocity += AnchorToPlayer.normalized * _playerSpeed * Mathf.Max(0, distance * (1 / (distance + 1)));
+                _rigidbody.velocity += AnchorToPlayer.normalized * _playerSpeed * Mathf.Max(0, -Mathf.Pow(distance / (MaxDist / 2) - 1, 4) + 1);
             }
             else if(Input.GetMouseButton(1))
             {
                 print("Ettire");
-                _rigidbody.velocity -= AnchorToPlayer.normalized * _playerSpeed * Mathf.Max(0, distance * (1 / (distance + 1)));
+                _rigidbody.velocity -= AnchorToPlayer.normalized * _playerSpeed * Mathf.Max(0, -Mathf.Pow(distance / (MaxDist / 2) - 1, 4) + 1);
             }
         }
 
         Vector2 forwarplace = _rigidbody.velocity.normalized + (Vector2)transform.position;
-
         var angle = Mathf.Atan2(forwarplace.y, forwarplace.x) * Mathf.Rad2Deg;
         var newAngle = Mathf.Lerp(previusAngle, angle, _rotationSPeed * Time.deltaTime);
         transform.rotation = Quaternion.AngleAxis(newAngle, Vector3.forward);
