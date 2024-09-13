@@ -3284,7 +3284,7 @@ MonoBehaviour:
   aimantAttire: {fileID: 8300000, guid: 02ce70524d389d94a84e7ce763cfcc62, type: 3}
   aimantEttire: {fileID: 8300000, guid: 02ce70524d389d94a84e7ce763cfcc62, type: 3}
   bombeExplosion: {fileID: 8300000, guid: bbdb8e7c74e38024ab307cbc8a313aab, type: 3}
-  collecteItem: {fileID: 8300000, guid: fc8805172ede8664bb9f04b18011c5f2, type: 3}
+  collecteItem: {fileID: 8300000, guid: c525ddb93ce064143833e58479713336, type: 3}
   reste30sound: {fileID: 8300000, guid: 5d773814cc39a7c449e0a128b7dd0d9d, type: 3}
   noiseSound: {fileID: 8300000, guid: 1012d0bd2b5101049818cbbeb69e387f, type: 3}
 --- !u!4 &345643105

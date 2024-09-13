@@ -499,19 +499,28 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 0.29762983, b: 1, a: 1}
+      key0: {r: 0, g: 0.115719795, b: 1, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -1957,6 +1966,7 @@ MonoBehaviour:
   bombeExplosion: {fileID: 8300000, guid: bbdb8e7c74e38024ab307cbc8a313aab, type: 3}
   collecteItem: {fileID: 8300000, guid: fc8805172ede8664bb9f04b18011c5f2, type: 3}
   reste30sound: {fileID: 8300000, guid: 5d773814cc39a7c449e0a128b7dd0d9d, type: 3}
+  noiseSound: {fileID: 0}
 --- !u!4 &1060120758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4487587234010375804, guid: 3838105a8781b1344a76b0946c7bc25a, type: 3}
