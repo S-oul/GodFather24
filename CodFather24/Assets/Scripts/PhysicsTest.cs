@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PhysicsTest : MonoBehaviour
 {
@@ -33,6 +33,8 @@ public class PhysicsTest : MonoBehaviour
     [SerializeField] TextMeshProUGUI slash;
 
     LineRenderer _lr;
+
+    [SerializeField] List<Image> imagesItems = new List<Image>();
 
 
     void Start()
@@ -186,6 +188,9 @@ public class PhysicsTest : MonoBehaviour
                 _followAliments.Add(collision.gameObject);
 
                 StartCoroutine(flash());
+
+                imagesItems[nbrAliments - 1].sprite = collision.gameObject.GetComponent<SpriteRenderer>().sprite;
+                imagesItems[nbrAliments - 1].color = Color.white;
 
             }
         }

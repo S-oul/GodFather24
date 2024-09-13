@@ -7,11 +7,11 @@ public class ChangeScene : MonoBehaviour
 {
     public void LoadLevel()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
     public void LoadMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
     public void ReloadScene()
     {

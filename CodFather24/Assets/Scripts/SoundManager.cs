@@ -14,6 +14,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip reste30sound;
     //public AudioClip ambiance;
 
+    public AudioClip noiseSound;
+
     private AudioSource _audioSource;
 
     private void Awake()
@@ -39,7 +41,7 @@ public class SoundManager : MonoBehaviour
 
     public void StopSound()
     {
-        if(_audioSource.clip.name != "Alarm sound")
+        if(_audioSource.clip.name != "Alarm sound" || _audioSource.clip.name != "TV_STATIC_4K_60FPS_[_YouConvert.net_]")
         {
             _audioSource.Stop();
         }
