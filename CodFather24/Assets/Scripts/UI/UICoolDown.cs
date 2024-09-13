@@ -50,7 +50,7 @@ public class UICoolDown : MonoBehaviour
         if (timer < 30 && !reste60)
         {
             //play sound "il reste 1 minutes"
-            StartCoroutine(playSound());
+            SoundManager.instance.jouerAudio(SoundManager.instance.reste30sound);
 
             reste60 = true;
         }
@@ -59,12 +59,14 @@ public class UICoolDown : MonoBehaviour
         {
             if (!reste10)
             {
-
+                SoundManager.instance.jouerAudio(SoundManager.instance.noiseSound);
                 reste10 = true;
             }
             float pourcentageTransparence = (10 - timer) / 10;
             transparence.a = fade.Evaluate(pourcentageTransparence);
             neige.color = transparence;
+
+
         }
 
         if (timer <= 0)
@@ -79,12 +81,5 @@ public class UICoolDown : MonoBehaviour
         }
     }
 
-    IEnumerator playSound()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            SoundManager.instance.jouerAudio(SoundManager.instance.reste30sound);
-            yield return new WaitForSeconds(2);
-        }
-    }
+    
 }
