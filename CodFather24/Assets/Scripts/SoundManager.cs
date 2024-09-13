@@ -38,7 +38,7 @@ public class SoundManager : MonoBehaviour
 
         if (_audioSource.clip.name == "Magnet effect pull")
         {
-            _audioSource.volume = 0.35f;
+            _audioSource.volume = 0.2f;
         }
         else
         {

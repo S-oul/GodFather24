@@ -36,6 +36,8 @@ public class PhysicsTest : MonoBehaviour
 
     [SerializeField] List<Image> imagesItems = new List<Image>();
 
+    [SerializeField] UICoolDown timer;
+
 
     void Start()
     {
@@ -192,6 +194,11 @@ public class PhysicsTest : MonoBehaviour
                 imagesItems[nbrAliments - 1].sprite = collision.gameObject.GetComponent<SpriteRenderer>().sprite;
                 imagesItems[nbrAliments - 1].color = Color.white;
 
+            }
+
+            if (nbrAliments == maxElements)
+            {
+                timer.timer = 4;
             }
         }
         

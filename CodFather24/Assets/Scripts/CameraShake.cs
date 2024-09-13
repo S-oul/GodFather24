@@ -13,6 +13,8 @@ public class CameraShake : MonoBehaviour
 
     [SerializeField] bool tourne = false;
 
+    [SerializeField] Camera minimap;
+
     public IEnumerator shakeCam()
     {
         float temps = duree;
@@ -22,6 +24,7 @@ public class CameraShake : MonoBehaviour
             if (tourne)
             {
                 Camera.main.transform.eulerAngles += new Vector3(0, 0, 1);
+                minimap.transform.eulerAngles += new Vector3(0, 0, 1);
                 //virtualCamera.m_Lens.Dutch = 1f;
             }
         transform.localPosition = new Vector2(Random.Range(-1,1)*power, Random.Range(-1, 1) * power);
@@ -34,6 +37,7 @@ public class CameraShake : MonoBehaviour
         if (tourne)
         {
             Camera.main.transform.eulerAngles += new Vector3(0, 0, 0);
+            minimap.transform.eulerAngles += new Vector3(0, 0, 0);
             //virtualCamera.m_Lens.Dutch = 0f;
         }
 

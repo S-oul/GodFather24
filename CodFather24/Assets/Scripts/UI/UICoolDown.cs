@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class UICoolDown : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI tmp;
-    [SerializeField] float timer = 180f;
+    public float timer = 180f;
 
     [SerializeField] Image neige;
     Color transparence;
@@ -22,6 +22,8 @@ public class UICoolDown : MonoBehaviour
     [SerializeField] GameObject fleches;
     [SerializeField] GameObject miniMap;
     [SerializeField] GameObject colliderPlayer;
+
+    [SerializeField] GameObject minimap;
 
     bool reste60 = false;
     bool reste10 = false;
@@ -38,6 +40,7 @@ public class UICoolDown : MonoBehaviour
         fleches.SetActive(true);
         miniMap.SetActive(true);
         colliderPlayer.SetActive(true);
+        minimap.SetActive(true);
     }
 
 
@@ -71,15 +74,21 @@ public class UICoolDown : MonoBehaviour
 
         if (timer <= 0)
         {
-            ecranFin.SetActive(true);
-            this.gameObject.SetActive(false);
-
-            collectible.SetActive(false);
-            fleches.SetActive(false);
-            miniMap.SetActive(false);
-            colliderPlayer.SetActive(false);
+            finJeu();
         }
     }
 
+
+    public void finJeu()
+    {
+        ecranFin.SetActive(true);
+        this.gameObject.SetActive(false);
+
+        collectible.SetActive(false);
+        fleches.SetActive(false);
+        miniMap.SetActive(false);
+        colliderPlayer.SetActive(false);
+        minimap.SetActive(false);
+    }
     
 }

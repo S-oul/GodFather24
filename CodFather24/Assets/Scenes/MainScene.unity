@@ -14686,6 +14686,7 @@ MonoBehaviour:
   power: 8
   virtualCamera: {fileID: 336310306}
   tourne: 1
+  minimap: {fileID: 1997377857}
 --- !u!1001 &1531072800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15979,6 +15980,7 @@ MonoBehaviour:
   fleches: {fileID: 277898602}
   miniMap: {fileID: 639437877}
   colliderPlayer: {fileID: 1130160336}
+  minimap: {fileID: 364846153}
 --- !u!114 &1697889855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16553,6 +16555,10 @@ PrefabInstance:
       propertyPath: slash
       value: 
       objectReference: {fileID: 471138453}
+    - target: {fileID: 1436921370380072807, guid: b7f30a25b40c69641bd41d9f7232b470, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1697889854}
     - target: {fileID: 1436921370380072807, guid: b7f30a25b40c69641bd41d9f7232b470, type: 3}
       propertyPath: maxElements
       value: 7
@@ -19618,7 +19624,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 21
+  orthographic size: 28.35
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
