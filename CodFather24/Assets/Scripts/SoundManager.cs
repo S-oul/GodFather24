@@ -35,6 +35,17 @@ public class SoundManager : MonoBehaviour
     {
         //AudioSource.volume = 99;
         _audioSource.clip = clip;
+
+        if (_audioSource.clip.name == "Magnet effect pull")
+        {
+            _audioSource.volume = 0.35f;
+        }
+        else
+        {
+            _audioSource.volume = 1;
+        }
+        
+
         _audioSource.PlayOneShot(clip);
 
     }
